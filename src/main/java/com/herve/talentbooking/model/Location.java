@@ -1,6 +1,7 @@
 package com.herve.talentbooking.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -21,6 +22,7 @@ public class Location {
 
     @ManyToOne
     @JoinColumn(name = "parent_id")
+    @JsonIgnoreProperties({"parent", "children", "users"})
     private Location parent;
 
     @OneToMany(mappedBy = "parent")

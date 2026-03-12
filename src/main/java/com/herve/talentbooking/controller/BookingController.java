@@ -2,7 +2,6 @@ package com.herve.talentbooking.controller;
 
 import com.herve.talentbooking.model.Booking;
 import com.herve.talentbooking.service.BookingService;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
