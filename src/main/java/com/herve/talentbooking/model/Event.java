@@ -1,6 +1,7 @@
 package com.herve.talentbooking.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class Event {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
+    @JsonIgnoreProperties({"location", "roles", "talentProfile", "events", "password"})
     private User client;
 
     @OneToMany(mappedBy = "event")

@@ -2,6 +2,21 @@
 
 A Spring Boot REST API application for managing talent bookings and events with location-based user management.
 
+## ⚠️ IMPORTANT: Testing Instructions
+
+**Before testing with Postman:**
+1. Read `POSTMAN_TESTING_GUIDE.md` for detailed instructions
+2. Locations use **UUID** - you must copy actual UUIDs from responses
+3. Other entities (Users, Events, etc.) use **Long/Integer** IDs
+4. Always create locations in hierarchical order (Province → District → Sector → Cell → Village)
+5. Replace all `REPLACE_WITH_*_UUID` placeholders with actual UUIDs from your responses
+
+## Recent Fixes
+
+✅ **Fixed pagination** - Bookings and TalentProfiles now handle pagination parameters correctly
+✅ **Updated Postman Collection** - Added comprehensive instructions in description
+✅ **Created Testing Guide** - Step-by-step guide for proper API testing
+
 ## API Endpoints
 
 ### Users

@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/users")
@@ -62,24 +63,9 @@ public class UserController {
         throw new RuntimeException("Please provide either province code or name");
     }
 
-    @GetMapping("/by-district/{districtId}")
-    public List<User> getUsersByDistrict(@PathVariable Long districtId) {
-        return userService.getUsersByDistrictId(districtId);
-    }
-
-    @GetMapping("/by-sector/{sectorId}")
-    public List<User> getUsersBySector(@PathVariable Long sectorId) {
-        return userService.getUsersBySectorId(sectorId);
-    }
-
-    @GetMapping("/by-cell/{cellId}")
-    public List<User> getUsersByCell(@PathVariable Long cellId) {
-        return userService.getUsersByCellId(cellId);
-    }
-
-    @GetMapping("/by-village/{villageId}")
-    public List<User> getUsersByVillage(@PathVariable Long villageId) {
-        return userService.getUsersByVillageId(villageId);
+    @GetMapping("/by-location/{locationId}")
+    public List<User> getUsersByLocation(@PathVariable UUID locationId) {
+        return userService.getUsersByLocationId(locationId);
     }
 
     @PutMapping("/{id}")

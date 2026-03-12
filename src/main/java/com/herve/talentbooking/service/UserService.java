@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -55,20 +56,8 @@ public class UserService {
         return userRepository.findByProvinceName(provinceName);
     }
 
-    public List<User> getUsersByDistrictId(Long districtId) {
-        return userRepository.findByDistrictId(districtId);
-    }
-
-    public List<User> getUsersBySectorId(Long sectorId) {
-        return userRepository.findBySectorId(sectorId);
-    }
-
-    public List<User> getUsersByCellId(Long cellId) {
-        return userRepository.findByCellId(cellId);
-    }
-
-    public List<User> getUsersByVillageId(Long villageId) {
-        return userRepository.findByVillageId(villageId);
+    public List<User> getUsersByLocationId(UUID locationId) {
+        return userRepository.findByLocationId(locationId);
     }
 
     public User updateUser(Long id, User user) {
@@ -78,8 +67,8 @@ public class UserService {
         existing.setEmail(user.getEmail());
         existing.setPassword(user.getPassword());
         existing.setPhoneNumber(user.getPhoneNumber());
-        if (user.getVillage() != null) {
-            existing.setVillage(user.getVillage());
+        if (user.getLocation() != null) {
+            existing.setLocation(user.getLocation());
         }
         return userRepository.save(existing);
     }

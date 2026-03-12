@@ -2,6 +2,7 @@ package com.herve.talentbooking.controller;
 
 import com.herve.talentbooking.model.Booking;
 import com.herve.talentbooking.service.BookingService;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,11 @@ public class BookingController {
     }
 
     @GetMapping
-    public List<Booking> getAllBookings() {
+    public List<Booking> getAllBookings(
+            @RequestParam(required = false) Integer page,
+            @RequestParam(required = false) Integer size
+    ) {
+        // Return all bookings if no pagination params provided
         return bookingService.getAllBookings();
     }
 

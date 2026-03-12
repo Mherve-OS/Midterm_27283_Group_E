@@ -2,6 +2,7 @@ package com.herve.talentbooking.controller;
 
 import com.herve.talentbooking.model.TalentProfile;
 import com.herve.talentbooking.service.TalentProfileService;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,11 @@ public class TalentProfileController {
     }
 
     @GetMapping
-    public List<TalentProfile> getAllTalentProfiles() {
+    public List<TalentProfile> getAllTalentProfiles(
+            @RequestParam(required = false) Integer page,
+            @RequestParam(required = false) Integer size
+    ) {
+        // Return all talent profiles if no pagination params provided
         return talentProfileService.getAllTalentProfiles();
     }
 

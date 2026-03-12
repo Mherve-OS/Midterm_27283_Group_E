@@ -1,6 +1,7 @@
 package com.herve.talentbooking.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
@@ -18,6 +19,7 @@ public class TalentProfile {
 
     @OneToOne
     @JoinColumn (name = "user_id")
+    @JsonIgnoreProperties({"location", "roles", "talentProfile", "events", "password"})
     private User user;
 
     @OneToMany(mappedBy = "talent")

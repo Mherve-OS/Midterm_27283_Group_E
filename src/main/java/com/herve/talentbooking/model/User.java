@@ -1,6 +1,7 @@
 package com.herve.talentbooking.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Set;
@@ -24,8 +25,9 @@ public class User {
     private String phoneNumber;
 
     @ManyToOne
-    @JoinColumn(name = "village_id")
-    private Village village;
+    @JoinColumn(name = "location_id")
+    @JsonIgnoreProperties({"children", "users", "parent"})
+    private Location location;
 
     @ManyToMany
     @JoinTable(
@@ -33,6 +35,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+    @JsonIgnoreProperties({"users"})
     private Set<Role> roles;
 
     @OneToOne(mappedBy = "user")
