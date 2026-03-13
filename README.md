@@ -64,7 +64,8 @@ PUt[ http://localhost:8080/api/talent-profiles/1](http://localhost:8080/api/book
 
 ### location table 
 <img width="1481" height="926" alt="image" src="https://github.com/user-attachments/assets/817d1a5e-cedf-4cfb-a675-09fe4f5072f5" />
-### user table
+
+### user table 
 <img width="1486" height="556" alt="image" src="https://github.com/user-attachments/assets/1319f574-4e90-488e-88c3-cb784962f561" />
 
 
